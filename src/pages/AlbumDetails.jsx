@@ -13,7 +13,7 @@ const AlbumDetail = ({ album, refreshAlbumList, onAddToLibrary }) => {
   const storedToken = localStorage.getItem("authToken");
 
   const api = axios.create({
-    baseURL: "http://localhost:5005",
+    baseURL: "https://uplay-server.onrender.com",
     headers: {
       Authorization: `Bearer ${storedToken}`,
     },

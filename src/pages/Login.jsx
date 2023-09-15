@@ -7,7 +7,7 @@ import axios from "axios";
 import {  message } from "antd";
 import "./Login.css"
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://uplay-server.onrender.com";
 
 function Login() {
   const [identifier, setIdentifier] = useState("");
