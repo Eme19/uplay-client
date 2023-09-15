@@ -26,7 +26,7 @@ function Playlist() {
 
   useEffect(() => {
     api
-      .get("/api/all")
+      .get("/api/playlist/all")
       .then((response) => {
         setPlaylists(response.data.all);
         setIsLoading(false);
