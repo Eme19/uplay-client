@@ -1,0 +1,42 @@
+h1 {
+    text-align: start;
+    font-size: 2rem;
+    padding-left: 3.9rem;
+    padding-top: 3rem;
+    font-family: sans-serif;
+    color: rgb(104, 131, 104);
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+  }
+
+
+  label {
+    float: left;
+    padding-bottom: 0.2rem;
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    font-weight: lighter;
+    font-size: 0.93rem;
+    font-family: sans-serif;
+  }
+
+  .btn-form {
+    border-collapse: collapse;
+    border: transparent;
+    color: black;
+    background-color: rgb(235, 239, 240);
+    cursor: pointer;
+    font-weight: bolder;
+    padding: 0.6rem 3.5rem 0.6rem 3.5rem;
+    border-radius: 0.3rem;
+  }
+
+  .input-formstyle {
+    background-color: rgb(234, 233, 233);
+  }

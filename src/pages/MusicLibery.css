@@ -1,0 +1,19 @@
+.menu-style{
+    font-size: 1rem;
+    text-decoration: none;
+    
+}
+
+.custom-menu .ant-menu-item {
+    border-bottom: 1px solid #ccc; /* Add a bottom border to all menu items */
+    padding-bottom: 4px; /* Optional: Adjust padding for spacing */
+  }
+  
+  .custom-menu-item {
+    border-bottom: 1px solid #ccc; /* Add a bottom border to the "Songs" menu item */
+    padding-bottom: 4px; /* Optional: Adjust padding for spacing */
+  }
+
+  Menu{
+    padding-bottom: 3rem;
+  }
