@@ -7,7 +7,7 @@ import axios from "axios";
 import {  message } from "antd";
 import "./Login.css"
 
-const API_URL = "https://uplay-server.onrender.com";
+const API_URL = process.env.REACT_APP_API_URL
 
 function Login() {
   const [identifier, setIdentifier] = useState("");

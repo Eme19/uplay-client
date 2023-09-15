@@ -15,7 +15,7 @@ const PlaylistDetails = () => {
 
   const storedToken = localStorage.getItem("authToken")
   const api = axios.create({
-    baseURL: 'http://localhost:5005',
+    baseURL: process.env.REACT_APP_API_URL,
     headers: {
       Authorization: `Bearer ${storedToken}`,
     },

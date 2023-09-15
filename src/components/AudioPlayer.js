@@ -5,7 +5,7 @@ import { IoPlaySharp, IoPauseSharp } from 'react-icons/io5';
 import { BsMusicNoteBeamed } from 'react-icons/bs';
 import './AudioPlayer.css';
 
-const API_URL = 'http://localhost:5005';
+const API_URL = process.env.REACT_APP_API_URL
 
 const AudioPlayer = ({ trackId }) => {
   const [audioUrl, setAudioUrl] = useState(null);
