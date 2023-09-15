@@ -82,16 +82,16 @@ function Home() {
                  className="col-card-style"
                     title={album.title}
                     style={{ width: 170, height: 300, margin: 5 }}
-                    // extra={
+                    extra={
                     
-                    //   <Button
-                    //     type="danger"
-                    //     icon={<DeleteOutlined />}
-                    //     onClick={() => handleDeleteAlbum(album._id)}
-                    //   >
-                    //     Delete
-                    //   </Button>
-                    // }
+                      <Button
+                        type="danger"
+                        icon={<DeleteOutlined />}
+                        onClick={() => handleDeleteAlbum(album._id)}
+                      >
+                        Delete
+                      </Button>
+                    }
                   >
 
 

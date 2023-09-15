@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Input, Button, List } from "antd";
+import { Link } from "react-router-dom";
 import { SearchOutlined } from "@ant-design/icons";
 import "./SearchBar.css"
 
@@ -65,6 +66,7 @@ function SearchBar({ onSearch }) {
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       <ul>
+      
         {searchResults.tracks?.map((result) => {
           return <li>{result.artist}</li>;
         })}
@@ -76,9 +78,8 @@ function SearchBar({ onSearch }) {
         {searchResults.album?.map((result) => {
           return (
             <ul>
-              {" "}
-              <li>{result.artist}</li>
-              <li>{result.name}</li>
+          <Link to={`/album/${result._id}`} >  <li>{result.artist}</li> 
+              <li>{result.name}</li></Link> 
             </ul>
           );
         })}

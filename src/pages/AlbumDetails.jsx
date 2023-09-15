@@ -58,7 +58,7 @@ const AlbumDetail = ({ album, refreshAlbumList, onAddToLibrary }) => {
   };
 
   return (
-    <div>
+    <div className="test">
       <>
         {isLoggedIn > 0 && (
           <>
