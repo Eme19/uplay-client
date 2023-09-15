@@ -29,14 +29,24 @@ function ArtistAlbums() {
         {loading ? (
           <p>Loading albums...</p>
         ) : (
-          albums.map((album) => (
+          albums?.map((album) => (
             <li key={album._id}>
-              {album.title} - {album.release_date}
+              <div>
+                <strong>Title:</strong> {album.title}
+              </div>
+              <div>
+                <strong>Total Tracks:</strong> {album.total_tracks}
+              </div>
+              <div>
+                <strong>Genre:</strong> {album.genre}
+              </div>
+              <div>
+                <strong>Popularity:</strong> {album.popularity}
+              </div>
             </li>
           ))
         )}
       </ul>
-      
     </div>
   );
 }

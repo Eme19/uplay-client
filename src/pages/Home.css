@@ -1,4 +1,64 @@
+
+
 h2{
     padding-left: 0.9rem;
     font-size: 1.2rem;
 }
+
+
+li{
+    font-size: 4rem;
+    list-style-type: none;
+}
+
+.home-button-style{
+    display: flex;
+    justify-content: center;
+}
+
+Link{
+    text-transform:capitalize;
+}
+
+.image-style{
+    text-align: center;
+ 
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+     gap: rem;
+}
+.search-style{
+    display: flex;
+    justify-content: center ;
+    padding-top: 1rem;
+    width: 100%;
+}
+
+.home-flex-style{
+    display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   width: 80%;
+   gap: 5rem;
+}
+/* 
+.libery-content{
+    display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+    gap: 4rem;
+
+} */
+
+#libery-li-style{
+    font-weight: bold;
+   
+}
+/* .col-card-style{
+    font-size: 0.5rem;
+} */

@@ -5,13 +5,12 @@
 }
 
 .custom-menu .ant-menu-item {
-    border-bottom: 1px solid #ccc; /* Add a bottom border to all menu items */
-    padding-bottom: 4px; /* Optional: Adjust padding for spacing */
-  }
-  
+    border-bottom: 1px solid #ccc; 
+    padding-bottom: 4px; 
+}
   .custom-menu-item {
-    border-bottom: 1px solid #ccc; /* Add a bottom border to the "Songs" menu item */
-    padding-bottom: 4px; /* Optional: Adjust padding for spacing */
+    border-bottom: 1px solid #ccc; 
+    padding-bottom: 4px; 
   }
 
   Menu{

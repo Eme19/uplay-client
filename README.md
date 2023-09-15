@@ -1,115 +1,70 @@
-# uPlay (Client)
+# Getting Started with Create React App
 
-## Overview
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-uPlay is a React-based web application for play music, and build playlists with your favourite songs. It's designed to be an app of songs using CRUD.
+## Available Scripts
 
-## Table of Contents
+In the project directory, you can run:
 
-- [Getting Started](#getting-started)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
+### `npm start`
 
-## Getting Started
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### Prerequisites
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-Before you begin, ensure you have met the following requirements:
+### `npm test`
 
-- [Node.js](https://nodejs.org/) installed on your machine.
-- [npm](https://www.npmjs.com/) (Node Package Manager) installed.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Installation
+### `npm run build`
 
-To set up and run uPlay (client) locally, follow these steps:
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-1. Clone the repository to your local machine:
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-   git clone https://github.com/Eme19/client.git
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-2. Change your working directory to the project folder:
+### `npm run eject`
 
-    cd uplay-frontend
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-3. Install the project dependencies:
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-    npm install
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-4. Start the development server:
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-    npm start
+## Learn More
 
-This will run the app in development mode. Open http://localhost:3000 to view it in your browser. The page will automatically reload if you make changes to the source code.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Usage
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-uPlay provides a user-friendly interface for playing music and managing your playlists. To get started, follow these steps:
+### Code Splitting
 
-1. **User Registration**: Create an account on uPlay by clicking the "Sign Up" button and providing your details.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-2. **Exploring Music**: Use the search bar to discover your favorite songs. Simply enter the song or artist's name, and uPlay will display matching results.
+### Analyzing the Bundle Size
 
-3. **Creating Playlists**: Once you've found a song you like, click the "Add to Playlist" button to create and add it to a playlist. You can create multiple playlists to organize your music.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-4. **Playing Music**: To listen to your songs, go to the "My Playlists" section and select a playlist. Click the play button next to a song to start playing it.
+### Making a Progressive Web App
 
-5. **Updating User Profile**: Customize your profile by navigating to the "Profile" section. Here, you can update your profile picture and other personal information.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-6. **Configuration Options**: Customize your music playback settings in the "Settings" section. Adjust playback quality, audio settings, and more.
+### Advanced Configuration
 
-Enjoy your music journey with uPlay!
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-## Features
+### Deployment
 
-- **User Registration**: Create a user account to access uPlay's full features.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-- **Music Search**: Discover and search for your favorite songs and artists.
+### `npm run build` fails to minify
 
-- **Playlist Management**: Create, edit, and delete playlists to organize your music collection.
-
-- **Music Playback**: Play songs within your playlists with ease.
-
-- **User Profile**: Customize your profile with a profile picture and personal information.
-
-- **Settings**: Configure playback settings to suit your preferences.
-
-- **Responsive Design**: Enjoy uPlay on various devices, as it's optimized for mobile and desktop.
-
-- **User Authentication**: Securely authenticate users to protect their data.
-
-## Technologies Used
-
-This project was built using the following technologies and libraries:
-
-React
-Ant Design
-Axios
-React Router
-Bootstrap
-
-## Contributing
-
-We welcome contributions from the community. If you'd like to contribute to uPlay Frontend, please follow these steps:
-
-1. Fork the repository and create your branch:
-
-    git checkout -b feature/your-feature-name
-
-2. Commit your changes:
-
-    git commit -m 'Add some feature'
-
-3. Push to the branch:
-
-    git push origin feature/your-feature-name
-
-4. Open a pull request. Explain your changes and why they are necessary.
-
-## License
-
-This project is licensed under the MIT License.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

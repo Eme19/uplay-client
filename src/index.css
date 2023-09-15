@@ -9,13 +9,7 @@ body {
   background-color: white;
 }
 
-/* .home {
-  width: 90%;
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 15px;
-  border-radius: 5%;
-} */
+
 
 .light .home {
   background-color: #efeded;
@@ -31,11 +25,11 @@ code {
 }
 
 .navbar {
-  background-color: black;
+  background-color: rgb(58, 56, 56);
   color: rgb(160, 60, 150);
   /* padding: 10px 20px; */
   font-weight: 600;
-  height: 6rem;
+  height: 4.5rem;
   border-bottom: 4px solid rgb(160, 60, 150);
 }
 
@@ -60,6 +54,7 @@ code {
 .logo-img {
   width: 80px;
   height: 80px;
+
 }
 
 .home-img {
@@ -122,7 +117,7 @@ code {
   color: #888;
 }
 
-/* Styles for ProgressBar.js */
+
 .progress {
   display: flex;
   align-items: center;

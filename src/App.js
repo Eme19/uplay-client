@@ -26,6 +26,9 @@ import Profile from "./pages/Profile";
 import ProfileImage from "./pages/ProfileImage";
 import Footer from "./pages/Footer";
 import "font-awesome/css/font-awesome.min.css";
+import EditProfileImage from "./pages/EditProfileImage"
+import EditPlaylist from "./pages/EditPlaylist";
+import IsAdminRoute from "./components/IsAdminRoute";
 
 
 
@@ -36,7 +39,10 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Routes>       
+      <Routes>  
+
+      <Route path="/edit/playlist/:playlistId" element={<EditPlaylist/>} />     
+      <Route path="/edit/profile" element={<EditProfileImage/>} />  
       <Route path="/edit/artist/:artistId" element={<EditArtist/>} />
          <Route path="/playlist" element={<Playlist />} />
       <Route  path="/playlist/:playlistId"  element={<PlaylistDetails />} />
@@ -57,10 +63,12 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        
+    
       </Routes>
-      {/* <Footer/> */}
+
+      <Footer/>
       <ToastContainer/>
+   
     </div>
   );
 }

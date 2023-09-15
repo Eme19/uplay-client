@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Input } from "antd";
 import axios from "axios";
 import {  message } from "antd";
+import "./Login.css"
 
 const API_URL = "http://localhost:5005";
 
@@ -57,9 +58,11 @@ function Login() {
 
   return (
     <div className={`login ${theme}`}>
+     
       <h1>Login</h1>
 
-      <form onSubmit={handleLoginSubmit}>
+      <form  onSubmit={handleLoginSubmit}>
+      <div >
         <div>
           <label>Email or Username</label>
           <Input
@@ -81,10 +84,13 @@ function Login() {
             required
           />
         </div>
+        </div>
         <div>
           <button type="submit">Login</button>
         </div>
+       
       </form>
+     
     
       <p>Don't have an account yet?</p>
       <Link to="/signup"> Sign Up</Link>

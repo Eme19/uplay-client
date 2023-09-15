@@ -2,13 +2,19 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
-import { Card, Col } from "antd";
+import { Card, Col, Avatar, message } from "antd";
+import { PlusCircleOutlined } from "@ant-design/icons";
+import "./Playlist.css";
 
 function Playlist() {
   const [playlists, setPlaylists] = useState([]);
-  const { storedToken, isLoggedIn, isLoading, setIsLoading } = useContext(
+  const [error, setError] = useState(null);
+  const {  isLoggedIn, isLoading, setIsLoading } = useContext(
     AuthContext
   );
+
+  const storedToken =localStorage.getItem("authToken")
+
   const api = axios.create({
     baseURL: "http://localhost:5005",
     headers: {
@@ -19,7 +25,8 @@ function Playlist() {
   const { playlistId } = useParams();
 
   useEffect(() => {
-    api.get("/api/all")
+    api
+      .get("/api/all")
       .then((response) => {
         setPlaylists(response.data.all);
         setIsLoading(false);
@@ -29,35 +36,68 @@ function Playlist() {
       });
   }, []);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  const handlDelectPlaylist = async (playlistId) => {
+    try {
+      const response = await api.delete(`/api/playlist/${playlistId}`);
+      message.success("Playlist deleted");
+      console.log("API Response:", response.data);
+      setPlaylists((prevplaylists) =>
+        prevplaylists.filter((playlist) => playlist._id !== playlistId)
+      );
+    } catch (error) {
+      setError(error.message || 'An error occurred while deleting playlist.');
+      message.error('An error occurred while deleting playlist.');
+    }
+  };
 
   return (
     <>
       {isLoggedIn > 0 && (
-        <div>
-          <Link to="/create/playlist">Create a New Playlist</Link>
+        <>
           <div>
-            {playlists.map((playlist) => (
-              <Col span={6} key={playlist._id}>
-    
+            <div className="edi-playlist-style ">
+              <Link to="/create/playlist" className="create-playlist-link">
+                <Avatar
+                  icon={<PlusCircleOutlined style={{ fontSize: "32px" }} />}
+                  size={100}
+                  style={{
+                    backgroundColor: "",
+                    marginRight: "8px",
+                    borderRadius: "8px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  Create a New Playlist
+                </Avatar>
+              </Link>
+            </div>
+<div className="playlist-style-flex">
+{playlists.map((playlist) => (
+              <Col span={7} key={playlist._id}>
                 <Link to={`/playlist/${playlist._id}`}>
                   <Card
                     hoverable
                     title={playlist.name}
-                    style={{ margin: 10 }}
-                    cover={<img alt="" src={playlist.image} />}
+                    style={{ margin: 5 }}
+                    cover={<  img  className="image-style" alt="" src={playlist.image} />}
                   >
                     <p>Description: {playlist.description}</p>
                   </Card>
                 </Link>
+                <button
+                  type="danger"
+                  onClick={() => handlDelectPlaylist(playlist._id)}
+                >
+                  Delete
+                </button>
               </Col>
             ))}
+</div>
+           
           </div>
-          <br />
-         
-        </div>
+        </>
       )}
     </>
   );
@@ -72,70 +112,3 @@ export default Playlist;
 
 
 
-// import React, { useState, useEffect, useContext } from "react";
-// import { Link, useParams } from "react-router-dom";
-// import axios from "axios";
-// import { AuthContext } from "../context/auth.context";
-// import { Card , Col} from "antd";
-
-// function Playlist() {
-//   const [playlists, setPlaylists] = useState([]);
-//   const { storedToken, isLoggedIn, isLoading, setIsLoading } = useContext(
-//     AuthContext
-//   );
-//   const api = axios.create({
-//     baseURL: "http://localhost:5005",
-//     headers: {
-//       Authorization: `Bearer ${storedToken}`, // Ensure that storedToken is a string
-//     },
-//   });
-
-//   const { playlistId } = useParams();
-
-//   useEffect(() => {
-//     api
-//       .get("/api/all")
-//       .then((response) => {
-//         setPlaylists(response.data.all);
-//         setIsLoading(false);
-//       })
-//       .catch((error) => {
-//         console.error("Error fetching playlists:", error);
-//       });
-//   }, []);
-
-//   if (isLoading) {
-//     return <div>Loading...</div>;
-//   }
-
-//   return (
-//     <>
-//       {isLoggedIn > 0 && (
-//         <>
-//           <div>
-
-//           <Link to="/create/playlist">Create a New Playlist</Link>
-//             {playlists.map((playlist) => (
-              
-//               <Card
-//                 key={playlist._id}
-//                 hoverable
-//                 title={playlist.name}
-//                 style={{ width: 230, height: 300, margin: 10 }}
-//                 cover={<img alt="" src={playlist.image} />}
-//               >
-//                 <p>Description: {playlist.description}</p>
-//               </Card>
-          
-//             ))}
-//           </div>
-         
-//           <br />
-//           <Link to={`/playlist/${playlistId}`}>View Playlist</Link>
-//         </>
-//       )}
-//     </>
-//   );
-// }
-
-// export default Playlist;

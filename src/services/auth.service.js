@@ -15,7 +15,7 @@ const logIn = async ({ email, password }) => {
 };
 
 const logOut = () => {
-  // waiting the improvement of backend and other routes too, to handle with this better.
+  
 };
 
 const getCurrentUser = async () => {

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { Input, message } from "antd";
 
 const API_URL = "http://localhost:5005";
 
@@ -13,6 +15,7 @@ function EditArtist() {
     popularity: 0,
   });
 
+  const navigate =useNavigate()
   useEffect(() => {
     
     axios
@@ -41,7 +44,8 @@ function EditArtist() {
       .put(`${API_URL}/api/artist/${artistId}`, artist)
       .then((response) => {
         console.log("Artist updated:", response.data.artist);
-       
+        message.success("artist updated")
+        navigate("/artist")
       })
       .catch((error) => {
         console.error("Error updating artist:", error);
@@ -54,7 +58,7 @@ function EditArtist() {
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>
-          <input
+          <Input
             type="text"
             name="name"
             value={artist.name}
@@ -63,7 +67,7 @@ function EditArtist() {
         </div>
         <div>
           <label>Genre:</label>
-          <input
+          <Input
             type="text"
             name="genre"
             value={artist.genre}
@@ -72,7 +76,7 @@ function EditArtist() {
         </div>
         <div>
           <label>Image URL:</label>
-          <input
+          <Input
             type="text"
             name="image"
             value={artist.image}
@@ -81,7 +85,7 @@ function EditArtist() {
         </div>
         <div>
           <label>Popularity:</label>
-          <input
+          <Input
             type="number"
             name="popularity"
             value={artist.popularity}

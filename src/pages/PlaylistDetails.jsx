@@ -1,13 +1,19 @@
+
+
+
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import { AuthContext } from '../context/auth.context';
+import { Link, useParams } from 'react-router-dom';
+import "./PlaylistDetails.css"
+import {  message } from "antd";
 
 const PlaylistDetails = () => {
   const { playlistId } = useParams();
   const [playlist, setPlaylist] = useState(null);
   const [error, setError] = useState(null);
-  const { storedToken } = useContext(AuthContext);
+  
+
+  const storedToken = localStorage.getItem("authToken")
   const api = axios.create({
     baseURL: 'http://localhost:5005',
     headers: {
@@ -15,29 +21,48 @@ const PlaylistDetails = () => {
     },
   });
 
+const handlDelectPlaylist = async (playlistId) => {
+  try{
+    const response = await api.delete(`/api/playlist/${playlistId}`);
+    message.success("Playlist deleted")
+    console.log("API Response:", ); 
+    setPlaylist((prevplaylist)=> prevplaylist.filter((playlist)=> playlist._id !== playlistId) );
+  
+  }catch (error) {
+    setError(error.message || 'An error occurred while delecting playlist.');
+  }
+}
+
+
   const getPlaylist = async () => {
     try {
       const response = await api.get(`/api/playlist/${playlistId}`);
-      setPlaylist(response.data);
+      const playlistData = response.data.getPlaylistByIdDB; 
+      console.log("API Response:", playlistData); 
+      setPlaylist(playlistData);
     } catch (error) {
       setError(error.message || 'An error occurred while fetching the playlist.');
     }
   };
+
 
   useEffect(() => {
     getPlaylist();
   }, [playlistId]);
 
   if (error) {
+    console.log("Error:", error); 
     return <div>Error: {error.message || 'An error occurred while fetching the playlist.'}</div>;
   }
 
   if (!playlist) {
+    console.log("Loading..."); 
     return <div>Loading...</div>;
   }
 
-  // Check if playlist.tracks is defined before mapping
-  if (!playlist.tracks) {
+  
+  if (!playlist.track) { 
+    console.log("No tracks available for this playlist."); 
     return <div>No tracks available for this playlist.</div>;
   }
 
@@ -50,7 +75,7 @@ const PlaylistDetails = () => {
 
       <h3>Tracks</h3>
       <ul>
-        {playlist.tracks.map((track) => (
+        {playlist.track.map((track) => (
           <li key={track._id}>
             <p>Track Name: {track.name}</p>
             <p>Duration: {track.duration} seconds</p>
@@ -63,8 +88,20 @@ const PlaylistDetails = () => {
           </li>
         ))}
       </ul>
+     
+      <Link to={`/edit/playlist/${playlistId}`}>Edit Playlist</Link>
     </div>
   );
 };
-
 export default PlaylistDetails;
+
+
+
+
+
+
+
+
+
+
+

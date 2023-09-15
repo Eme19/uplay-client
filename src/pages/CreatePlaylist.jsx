@@ -11,16 +11,16 @@ const CreatePlaylist = ({ playlistId }) => {
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
   const [name, setName] = useState('');
-  const [selectedTrack, setSelectedTrack] = useState(''); // Change to a single selected track
+  const [selectedTrack, setSelectedTrack] = useState(''); 
   const [tracks, setTracks] = useState([]);
-  const {  isLoggedIn } = useContext(AuthContext);
+  const {isLoggedIn } = useContext(AuthContext);
 
  const storedToken = localStorage.getItem("authToken")
  
   const api = axios.create({
     baseURL: "http://localhost:5005",
     headers: {
-      Authorization: `Bearer ${storedToken}`, // Ensure that storedToken is a string
+      Authorization: `Bearer ${storedToken}`, 
     },
   });
 
@@ -51,7 +51,7 @@ const CreatePlaylist = ({ playlistId }) => {
     formData.append('description', description);
     formData.append('image', image);
     formData.append('name', name);
-    formData.append('trackId', selectedTrack); // Use 'trackId' instead of 'trackIds'
+    formData.append('trackId', selectedTrack); 
 
     try {
       const response = await api.post(`/api/create`, formData, {

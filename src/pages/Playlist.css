@@ -1,0 +1,16 @@
+.edi-playlist-style{
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+
+.playlist-style-flex{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.image-style{
+    width: 5rem;
+    
+}

@@ -1,71 +1,97 @@
 import React, { useState, useEffect } from "react";
-import { Input,  } from "antd";
-import { AuthContext } from "../context/auth.context";
-import  { useContext } from "react";
 import axios from "axios";
+import { Input, Button, List } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
+import "./SearchBar.css"
 
-
-
-
-function SearchBar() {
+function SearchBar({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState(null);
 
-
-
-  const storedToken = localStorage.getItem("authToken")
+  const storedToken = localStorage.getItem("authToken");
 
   const api = axios.create({
     baseURL: "http://localhost:5005",
     headers: {
-      Authorization: `Bearer ${storedToken}`, 
+      Authorization: `Bearer ${storedToken}`,
     },
   });
 
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const response = await api.get(
+        `/api/search?term=${searchTerm}&random=${Math.random()}`
+      );
+      if (response.status !== 200) {
+        throw new Error(`Request failed with status: ${response.status}`);
+      }
+      const data = response.data;
+      console.log("response.data", data.data);
+      setSearchResults(data.data);
+      setError(null);
+
+      if (typeof onSearch === "function") {
+        onSearch(data);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const response = await api.get(`/api/search?term=${searchTerm}`);
-        if (!response.ok) {
-          throw new Error(`Request failed with status: ${response.status}`);
-        }
-        const data = await response.json();
-        setSearchResults(data);
-        setError(null); 
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     if (searchTerm) {
       fetchData();
     } else {
       setSearchResults([]);
     }
-  }, [searchTerm]);
+  }, [searchTerm, onSearch]);
 
   return (
     <div className="search-bar">
-      <Input
+      <Input className="search-input"
         type="text"
-        placeholder="Search for songs..."
+        placeholder="Search..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
+        prefix={<SearchOutlined />}
       />
-      <button>Search</button> 
+
       {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>} 
+      {error && <p>Error: {error}</p>}
       <ul>
-        {searchResults.map((result) => (
-          <li key={result.id}>{result.name}</li>
-        ))}
+        {searchResults.tracks?.map((result) => {
+          return <li>{result.artist}</li>;
+        })}
+
+        {searchResults.tracks?.map((result) => {
+          return <li>{result.artist}</li>;
+        })}
+
+        {searchResults.album?.map((result) => {
+          return (
+            <ul>
+              {" "}
+              <li>{result.artist}</li>
+              <li>{result.name}</li>
+            </ul>
+          );
+        })}
+
+        {searchResults.artist?.map((result) => {
+          return (
+            <ul>
+              {" "}
+              <li>{result.name}</li>
+              <li>{result.name}</li>
+            </ul>
+          );
+        })}
       </ul>
     </div>
   );

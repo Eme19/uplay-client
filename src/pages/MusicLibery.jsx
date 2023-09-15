@@ -30,55 +30,12 @@ function MusicLibrary() {
           </Menu.Item>
 
         </Menu>
-        {/* <div style={{ display: 'flex', justifyContent: 'space-between'}}>
-          <Button onClick={toggleTheme}>
-            {theme === 'light' ? <BulbOutlined /> : <StarOutlined />}
-            {theme === 'light' ? 'Switch to Dark' : 'Switch to Light'}
-          </Button>
-        </div> */}
       </div>
     </>
   );
 }
 
 export default MusicLibrary;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import {Link} from "react-router-dom"
-
-
-
-
-
-// function MusicLibery (){
-//     return(
-//         <> 
-//         {/* <Playlist/> */}
-// <Link to="/album/list">Album</Link><br>
-// </br>
-// <Link to="/playlist"> PLaylist</Link><br>
-// </br>
-// <Link to="/artist">Artist</Link><br>
-// </br>
-// <Link to="/songs">Songs</Link>
-
-//         </>
-//     )
-// }
-
-// export default MusicLibery;
 
 
 

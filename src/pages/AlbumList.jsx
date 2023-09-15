@@ -4,6 +4,8 @@ import { Row } from "antd";
 import { toast } from "react-toastify";
 import AlbumDetail from "./AlbumDetails";
 import { AuthContext } from "../context/auth.context";
+import "./AlbumList.css"
+import SearchBar from "./SearchBar";
 
 function AlbumList() {
   const [albums, setAlbums] = useState([]);
@@ -31,7 +33,7 @@ function AlbumList() {
   };
 
   const refreshAlbumList = () => {
-    console.log("Refreshing album list...");
+    console.log("Refreshing all album list...");
     getAlbums();
   };
 
@@ -39,9 +41,20 @@ function AlbumList() {
     getAlbums();
   }, []);
 
+  const handleAddToLibrary = (albumId) => {
+
+    console.log("Adding album to library:", albumId);
+  };
+
   return (
-    <div>
-      <h4>Album List</h4>
+    <>
+    <div id="search-albmStyle"> 
+    <SearchBar/>
+    </div>
+  
+   
+    <div className="albumlist-header">
+  
       {isLoading ? (
         <div>Loading...</div>
       ) : (
@@ -52,13 +65,14 @@ function AlbumList() {
               <AlbumDetail
                 key={album._id}
                 album={album}
-                refreshAlbumList={refreshAlbumList}
+                refreshAlbumList={refreshAlbumList} onAddToLibrary={handleAddToLibrary}
               />
             ))}
           </Row>
         )
       )}
     </div>
+    </>
   );
 }
 

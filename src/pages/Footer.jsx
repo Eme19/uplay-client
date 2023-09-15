@@ -1,22 +1,37 @@
 import React from "react";
-import "./Footer.css" 
-
+import { Layout } from "antd";
+import {
+  PlaySquareOutlined,
+  PlayCircleOutlined,
+  UserOutlined,
+  AudioOutlined,
+  SearchOutlined, 
+} from "@ant-design/icons";
+import { Link } from "react-router-dom";
+import "./Footer.css"
 
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="social-icons">
-        <a href="https://www.facebook.com">
-          <i className="fab fa-facebook"></i>
-        </a>
-        <a href="https://www.twitter.com">
-          <i className="fab fa-twitter"></i>
-        </a>
-        <a href="https://www.instagram.com">
-          <i className="fab fa-instagram"></i>
-        </a>
+    <Layout.Footer className="sticky-footer">
+      <div className="footr-positioning">
+        <Link id="footer-link-style" to="/album/list" className="menu-style">
+          <PlaySquareOutlined />
+        </Link>
+        <Link id="footer-link-style"  to="/playlist" className="menu-style">
+          < PlayCircleOutlined />
+        </Link>
+        <Link id="footer-link-style"  to="/artist" className="menu-style">
+          <UserOutlined />
+        </Link>
+        <Link id="footer-link-style"  to="/songs" className="menu-style">
+          <AudioOutlined
+          />
+        </Link>
+        <Link id="footer-link-style"  to="/" className="menu-style">
+          <SearchOutlined /> 
+        </Link>
       </div>
-    </footer>
+    </Layout.Footer>
   );
 }
 
