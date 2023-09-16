@@ -49,6 +49,7 @@ function Signup() {
 
   return (
     <div className={`signup ${theme}`}>
+      <div className="signup-style">
       <form onSubmit={handleSignupSubmit}>
         <h1>Sign Up</h1>
         <div className="inputstyle">
@@ -111,14 +112,20 @@ function Signup() {
           />
         </div>
 
-        <div>
-          <button className="btn-form" type="submit">
+        <div className="btn-flex">
+          <button type="submit">
             Sign Up!
           </button>
         </div>
+       
       </form>
+   
+      </div>
+<div id="p-signup-syle">
+<p>Already have an account? </p>
+  <Link to="/login">Login here!</Link>
+</div>
 
-      <p>Already have an account? <Link to="/login">Login here!</Link></p>
     </div>
   );
 }

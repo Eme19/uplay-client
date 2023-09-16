@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Input, Select } from "antd";
 import { toast } from "react-toastify";
-
+import "./AddArtist.css"
 const API_URL = process.env.REACT_APP_API_URL
 const { Option } = Select;
 
@@ -71,7 +71,8 @@ function AddArtist() {
 
   return (
     <div>
-      <h3>Add Artist</h3>
+      <h5>Add Artist</h5>
+<div className="artist-style">
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name</label>
@@ -84,9 +85,9 @@ function AddArtist() {
           />
         </div>
 
-        <div>
-            <label>Genre</label>
-            <Select
+        <div >
+            <label className="addartist-lab">Genre</label>
+            <Select className="genre-style"
               name="genre"
               value={artist.genre}
               onChange={(value) => setArtist({ ...artist, genre: value })}
@@ -122,10 +123,11 @@ function AddArtist() {
           />
         </div>
 
-        <div>
+        <div id="btn-artist">
           <button type="submit">Add Artist</button>
         </div>
       </form>
+      </div>
       {uploadStatus && <p>{uploadStatus}</p>}
     </div>
   );

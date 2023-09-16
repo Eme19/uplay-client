@@ -1,37 +1,36 @@
 
 
 h2{
-    padding-left: 0.9rem;
+    font-size: 1rem;
+    text-transform: capitalize;
+    text-decoration: none;
+    
+}
+
+h4{
+    padding-top: 1.5rem;
+    padding-left: 1rem;
     font-size: 1.2rem;
 }
 
-
-li{
-    font-size: 4rem;
-    list-style-type: none;
-}
 
 .home-button-style{
     display: flex;
     justify-content: center;
 }
 
-Link{
-    text-transform:capitalize;
+
+.home-icon-style{
+    font-size: 1.5rem;
 }
 
-.image-style{
-    text-align: center;
- 
+.home-features{
+    padding-bottom: 2rem;
 }
 
-ul{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 100%;
-     gap: rem;
-}
+
+
+
 .search-style{
     display: flex;
     justify-content: center ;
@@ -43,22 +42,25 @@ ul{
     display: flex;
    justify-content: space-around;
    flex-wrap: wrap;
-   width: 80%;
-   gap: 5rem;
+   width: 100%;
+   gap: 1rem;
 }
-/* 
+
 .libery-content{
     display: flex;
-   justify-content: space-around;
-   flex-wrap: wrap;
-    gap: 4rem;
-
-} */
+    flex-direction: column;
+} 
 
 #libery-li-style{
     font-weight: bold;
    
 }
-/* .col-card-style{
-    font-size: 0.5rem;
-} */
+span{
+    margin-inline-end: 0.4rem;
+}
+
+.delete-button{
+    display: flex;
+    justify-content: center;
+    padding: 0.7rem;
+}

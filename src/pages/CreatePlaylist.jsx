@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Input, Select, Button } from 'antd';
 import { AuthContext } from "../context/auth.context";
-
+import "./CreatePlaylist.css"
 const { Option } = Select;
 
 const CreatePlaylist = ({ playlistId }) => {
@@ -74,8 +74,8 @@ const CreatePlaylist = ({ playlistId }) => {
 
   return (
     <div>
-      <h2>Create Playlist</h2>
-
+      <h5>Create Playlist</h5>
+<div className='create-playlist'>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Description:</label>
@@ -105,8 +105,8 @@ const CreatePlaylist = ({ playlistId }) => {
           />
         </div>
         <div>
-          <label>Select Track</label>
-          <Select
+          <label className='lab-playlist'>Select Track</label>
+          <Select className="playlist-trackse"
             name="trackId"
             value={selectedTrack}
             onChange={(value) => setSelectedTrack(value)} // Update the selected track
@@ -120,11 +120,13 @@ const CreatePlaylist = ({ playlistId }) => {
             ))}
           </Select>
         </div>
-
+<div className='btn-playlist'>
         <Button type="primary" htmlType="submit">
           Create Playlist
         </Button>
+        </div>
       </form>
+      </div>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Input, Button } from "antd";
 import { toast } from "react-toastify";
-
+import "./AddTrack.css"
 const API_URL =process.env.REACT_APP_API_URL
 
 function AddTrack() {
@@ -73,7 +73,8 @@ function AddTrack() {
   return (
     <>
       <div>
-        <h3>Add Track</h3>
+        <h5>Add Track</h5>
+        <div className="addtrack-formstyle">
         <form onSubmit={handleSubmit}>
           <div>
             <label>Name</label>
@@ -129,12 +130,13 @@ function AddTrack() {
             />
           </div>
 
-          <div>
+          <div className="btn-addtrack">
             <Button type="primary" htmlType="submit">
               Add Track
             </Button>
           </div>
         </form>
+        </div>
         {uploadStatus && <p>{uploadStatus}</p>}
       </div>
     </>

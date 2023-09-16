@@ -1,17 +1,19 @@
-.create-playlist{
+.add-album-styling{
     display: flex;
     justify-content: center;
 }
 
-.playlist-trackse{
+.select-style{
     padding-top: 0.8rem;
+
 }
 
-.lab-playlist{
+#label-style{
     padding-inline-end: 1rem;
 }
 
-.btn-playlist{
-    padding-top: 1.5rem;
+.btn-addalbum{
+    padding-top: 1rem;
+    padding-bottom: 4rem;
     float: right;
 }

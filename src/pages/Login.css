@@ -1,4 +1,22 @@
-form{
+.login-flex{
     display: flex;
     justify-content: center;
+}
+
+#btn-style-login{
+    display: flex;
+    justify-content: center;
+ margin-top: 0.8rem;
+}
+
+
+.p-headup-style{
+  text-align: center;
+   padding-top: 4rem;
+
+}
+
+#Link-styl-login{
+    padding-left: 0.5rem;
+    color: black;
 }

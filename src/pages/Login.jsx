@@ -60,7 +60,7 @@ function Login() {
     <div className={`login ${theme}`}>
      
       <h1>Login</h1>
-
+<div className="login-flex">
       <form  onSubmit={handleLoginSubmit}>
       <div >
         <div>
@@ -85,15 +85,18 @@ function Login() {
           />
         </div>
         </div>
-        <div>
+        <div id="btn-style-login">
           <button type="submit">Login</button>
         </div>
        
       </form>
-     
-    
-      <p>Don't have an account yet?</p>
-      <Link to="/signup"> Sign Up</Link>
+
+      </div >
+<div className="p-headup-style">
+<p>Don't have an account yet?</p>
+      <Link id="Link-styl-login" to="/signup"> Sign Up</Link>
+</div>
+      
     </div>
   );
 

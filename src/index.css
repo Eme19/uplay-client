@@ -8,6 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: white;
+  text-decoration: none;
   /* display: flex;
   flex-direction: column; */
 }
@@ -28,12 +29,11 @@ code {
 }
 
 .navbar {
-  background-color: rgb(58, 56, 56);
   color: rgb(160, 60, 150);
   /* padding: 10px 20px; */
   font-weight: 600;
-  height: 4.5rem;
-  border-bottom: 4px solid rgb(160, 60, 150);
+  height: 4.7rem;
+  border-bottom: 4px solid rgb(175, 40, 161);
 }
 
 .navbar a {
@@ -55,10 +55,11 @@ code {
 }
 
 .logo-img {
-  width: 80px;
-  height: 80px;
-
+  width: 70px;
+  height: 70px;
 }
+
+
 
 .home-img {
   width: 100px;

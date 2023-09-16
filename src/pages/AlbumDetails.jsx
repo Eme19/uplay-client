@@ -58,34 +58,39 @@ const AlbumDetail = ({ album, refreshAlbumList, onAddToLibrary }) => {
   };
 
   return (
-    <div className="test">
+    <div  >
       <>
         {isLoggedIn > 0 && (
           <>
-            <Col>
-              <Link to={`/album/${album._id}`}>
-                <Card
-                  title={album.title}
-                  style={{ width: 150, height: 200, margin: 10 }}
+            <Col >
+              <Link id="Link-style" to={`/album/${album._id}`}>
+                <Card className="flex-style"
+                 
+                  style={{ width: 200, height: 300, margin: 10 }}
                 >
-                  <img src={album.image} alt="" height={100} />
+                  <h3 className=""  style={{ textAlign: "center" }}>{album.title}</h3>
+
+                  <div className="image-album">
+                  <img  src={album.image} alt="" height={130} width={140} />
+                  </div>
+                 
 
                   <ul className="album-info">
-                    <li>Total Tracks: {album.total_tracks}</li>
-                    <li>Release Date: {album.release_date}</li>
-                    <li>Genre: {album.genre}</li>
-                    <li>Popularity: {album.popularity}</li>
-                    <li>
-                      Artists: {album.artist.map((artist) => artist.name)}
-                    </li>
-                    <li>Album Type: {album.album_type}</li>
+                    <li className="li-style"><span>Total Tracks:</span> {album.total_tracks}</li>
+                    <li className="li-style"><span>Release Date:</span> {album.release_date}</li>
+                    <li className="li-style"><span>Genre:</span> {album.genre}</li>
+                    <li className="li-style"><span>Popularity:</span> {album.popularity}</li>
+                    <li className="li-style"><span> Artists:</span>
+                      {album.artist.map((artist) => artist.name)}
+                    </li  >
+                    <li className="li-style"> <span>Album Type: </span>{album.album_type}</li>
                   </ul>
                 </Card>
               </Link>
             </Col>
-            <div>
+            <div className="add-to-library-button">
               <Button
-                className="add-to-library-button"
+                
                 onClick={() => handleAddToLibrary(album._id)}
                 loading={isAddingToLibrary}
                 disabled={isAddingToLibrary}
@@ -93,6 +98,22 @@ const AlbumDetail = ({ album, refreshAlbumList, onAddToLibrary }) => {
                 {isAddingToLibrary ? "Adding..." : "Add to Library"}
               </Button>
             </div>
+
+
+            <div  className="admin-edit-delet-button">
+              <button
+                className="delete-button"
+                onClick={() => deleteAlbum(album._id)}
+              >
+                Delete from Library
+              </button>
+            </div>
+            <div  className="admin-edit-delet-button">
+              <Link to={`/edit/album/${album._id}`}>
+                <button className="edit-button">Edit Album</button>
+              </Link>
+            </div>
+           
           </>
         )}
       </>

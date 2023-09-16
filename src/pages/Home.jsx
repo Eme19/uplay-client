@@ -38,7 +38,10 @@ function Home() {
         .get("/library/recently-added")
         .then((response) => {
           setRecentlyAddedAlbums(response.data.recentlyAddedAlbums);
-          console.log("response.data.recentlyAddedAlbums", response.data.recentlyAddedAlbums);
+          console.log(
+            "response.data.recentlyAddedAlbums",
+            response.data.recentlyAddedAlbums
+          );
         })
         .catch((error) => {
           console.error("Error fetching recently added albums:", error);
@@ -46,16 +49,15 @@ function Home() {
     }
   }, [isLoggedIn]);
 
-
   const handleDeleteAlbum = (albumId) => {
     api
-      .post(`/library/remove/${albumId}`) 
+      .post(`/library/remove/${albumId}`)
       .then((response) => {
-        console.log("response", response)
-          setRecentlyAddedAlbums((prevAlbums) =>
-            prevAlbums.filter((album) => album._id !== albumId))
-            console.log(`Album with ID ${albumId} deleted successfully.`);
-       
+        console.log("response", response);
+        setRecentlyAddedAlbums((prevAlbums) =>
+          prevAlbums.filter((album) => album._id !== albumId)
+        );
+        console.log(`Album with ID ${albumId} deleted successfully.`);
       })
       .catch((error) => {
         console.error(`Error deleting album with ID ${albumId}:`, error);
@@ -66,64 +68,68 @@ function Home() {
     <>
       {isLoggedIn > 0 && (
         <>
-        <div className="search-style">
-        <SearchBar />
-        </div>
-        
+          <div className="search-style">
+            <SearchBar />
+          </div>
+
           <MusicHome />
-          <h2 >Recently Added</h2>
+          <h4>Recently Added</h4>
           <div className="home-flex-style">
-        {/* <Row gutter={16}> */}
             {recentlyAddedAlbums.map((album) => (
-           
-              <Col key={album._id} span={6}>
+              <Col key={album._id}>
                 <Link to={`/album/${album._id}`}>
                   <Card
-                 className="col-card-style"
-                    title={album.title}
-                    style={{ width: 170, height: 300, margin: 5 }}
-                    extra={
-                    
-                      <Button
-                        type="danger"
-                        icon={<DeleteOutlined />}
-                        onClick={() => handleDeleteAlbum(album._id)}
-                      >
-                        Delete
-                      </Button>
-                    }
+                    className="col-card-style"
+                    style={{ width: 200, height: 300, margin: 10 }}
                   >
+                    <h2 className="" style={{ textAlign: "center" }}>
+                      {album.title}
+                    </h2>
 
-
-                    <div>
-                    <img
-                      className="image-style"
-                      src={album.image}
-                      alt=""
-                      style={{ maxWidth: '100%', maxHeight: '200px' }}
-                    />
+                    <div className="image-style">
+                      <img src={album.image} alt="" height={130} width={140} />
                     </div>
-                  
-<div className="libery-content">
-<ul >
-                      <li ><span  id="libery-li-style">Total Tracks:</span> {album.total_tracks}</li>
-                      <li  ><span id="libery-li-style">Release Date:</span> {album.release_date}</li>
-                      <li ><span id="libery-li-style">Genre:</span> {album.genre}</li>
-                      <li > <span id="libery-li-style">Popularity:</span> {album.popularity}</li>
-                      <li><span id="libery-li-style">
-                      Artists: {album.artist.map((artist) => artist.name)}
-                        </span></li>
-                      <li> <span id="libery-li-style">Album Type:</span> {album.album_type}</li>
-                    </ul>
-</div>
-                  
+
+                    <div className="libery-content">
+                      <ul>
+                        <li>
+                          <span>Total Tracks:</span> {album.total_tracks}
+                        </li>
+                        <li>
+                          <span>Release Date:</span> {album.release_date}
+                        </li>
+                        <li>
+                          <span>Genre:</span> {album.genre}
+                        </li>
+                        <li>
+                          {" "}
+                          <span>Popularity:</span> {album.popularity}
+                        </li>
+                        <li>
+                          <span>
+                            Artists: {album.artist.map((artist) => artist.name)}
+                          </span>
+                        </li>
+                        <li>
+                          {" "}
+                          <span>Album Type:</span> {album.album_type}
+                        </li>
+                      </ul>
+                    </div>
                   </Card>
                 </Link>
+                <div className="delete-button">
+                  <Button
+                    type="danger"
+                    icon={<DeleteOutlined />}
+                    onClick={() => handleDeleteAlbum(album._id)}
+                  >
+                    Delete
+                  </Button>
+                </div>
               </Col>
-              
             ))}
-          {/* </Row> */}
-       
+            {/* </Row> */}
           </div>
         </>
       )}
@@ -142,34 +148,30 @@ function Home() {
             alignItems: "center",
           }}
         >
-          <Title level={2} style={{ color: "white" }}>
-            Play, Build, and Share Music
-          </Title>
+        
           <ul className="home-features">
-            <li>
+            <li className="home-icon-style">
               <PlayCircleOutlined /> Play your favorite songs
             </li>
-            <li>
+            <li className="home-icon-style">
               <BuildOutlined /> Build your playlist
             </li>
-            <li>
+            <li className="home-icon-style">
               <ShareAltOutlined /> Share with your friends
             </li>
           </ul>
 
           <div className="home-buttons">
-            <Link to="/admin">
-              <Button type="primary">Admin Page</Button>
-            </Link>
+           
             <Link to="/signup">
-              <Button type="primary" className={`btn btn-primary ${theme}`}>
+              <button className={`btn btn-primary ${theme}`}>
                 Sign Up
-              </Button>
+              </button>
             </Link>
             <Link to="/login">
-              <Button type="secondary" className={`btn btn-secondary ${theme}`}>
+              <button  className={`btn btn-secondary ${theme}`}>
                 Login
-              </Button>
+              </button>
             </Link>
           </div>
         </div>
@@ -179,4 +181,3 @@ function Home() {
 }
 
 export default Home;
-

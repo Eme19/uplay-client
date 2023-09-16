@@ -7,13 +7,6 @@ h1 {
     color: rgb(104, 131, 104);
   }
 
-  form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 60%;
-  }
 
 
   label {
@@ -30,13 +23,30 @@ h1 {
     border-collapse: collapse;
     border: transparent;
     color: black;
-    background-color: rgb(235, 239, 240);
+    background-color: rgb(203, 67, 92);
     cursor: pointer;
     font-weight: bolder;
-    padding: 0.6rem 3.5rem 0.6rem 3.5rem;
+    padding: 0.4rem 3rem 0.4rem 3rem;
     border-radius: 0.3rem;
   }
 
   .input-formstyle {
     background-color: rgb(234, 233, 233);
+
   }
+
+  .signup-style{
+    display: flex;
+    justify-content: center;
+  }
+
+.btn-flex{
+  display: flex;
+  justify-content: center;
+  padding-top: 0.8rem;
+}
+
+#p-signup-syle{
+  padding-top: 2rem;
+  text-align: center;
+}

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Input, Select, Button } from "antd";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import "./AddAlbum.css"
 const { Option } = Select;
 
 const enumValues = {
@@ -111,7 +111,8 @@ function Album() {
   return (
     <>
       <div>
-        <h3>Add Album</h3>
+        <h5>Add Album</h5>
+        <div className="add-album-styling">
         <form onSubmit={handleSubmit}>
           <div>
             <label>Title</label>
@@ -147,8 +148,8 @@ function Album() {
           </div>
 
           <div>
-            <label>Genre</label>
-            <Select
+            <label id="label-style">Genre</label>
+            <Select className="select-style"
               name="genre"
               value={formData.genre}
               onChange={(value) => setFormData({ ...formData, genre: value })}
@@ -175,8 +176,8 @@ function Album() {
           </div>
 
           <div>
-            <label>Artist</label>
-            <Select
+            <label id="label-style">Artist</label>
+            <Select className="select-style"
               name="artist"
               value={formData.artist}
               onChange={(value) => setFormData({ ...formData, artist: value })}
@@ -214,8 +215,8 @@ function Album() {
           </div>
 
           <div>
-            <label>Select Track</label>
-            <Select
+            <label id="label-style">Select Track</label>
+            <Select className="select-style"
               name="trackId"
               value={formData.trackId}
               onChange={(value) => setFormData({ ...formData, trackId: value })}
@@ -230,12 +231,13 @@ function Album() {
             </Select>
           </div>
 
-          <div>
+          <div className="btn-addalbum">
             <Button type="primary" htmlType="submit">
               Add Album
             </Button>
           </div>
         </form>
+        </div>
 
         {/* <Link to="/edit/album" className={`btn btn-primary `}>
           {" "}

@@ -2,10 +2,12 @@
     display: flex;
     justify-content: space-between;
     padding-left: 1rem;
+    padding-bottom: 1rem;
 }
 
 .profile-page{
     padding-left: 0.7rem;
-    padding-top: 0.3rem;
+    padding-top: 0.4rem;
    
 }
+

@@ -83,7 +83,7 @@ function Playlist() {
                     style={{ margin: 5 }}
                     cover={<  img  className="image-style" alt="" src={playlist.image} />}
                   >
-                    <p>Description: {playlist.description}</p>
+                    <p className="playlist-p">Description: {playlist.description}</p>
                   </Card>
                 </Link>
                 <button

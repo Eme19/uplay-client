@@ -1,13 +1,26 @@
-/* .album-item {
+ .flex-style {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
+   justify-content: space-around;
+  
+   width: 100%;
+gap: 20rem;
   }
 
-  h2{
+
+.image-album{
+text-align: center;
+}
+
+.Link-style{
+  text-decoration: none;
+ 
+}
+
+  h3{
     font-size: 1rem;
-  } */
+    text-transform: capitalize;
+    text-decoration: none;
+  } 
   
   .album-card {
     width: 230px;
@@ -27,18 +40,17 @@
     margin: 10px 0;
   }
   
-  .album-info {
-    display: flex;
- justify-content: center;
-    list-style-type: none;
-    text-decoration: none;
-    gap: 5rem;
-    width: 100%;
+
   
+  .album-info  {
+   display: flex;
+   flex-direction: column;
+
+
   }
-  
-  .album-info li {
-    margin: 5px 0;
+
+  .li-style{
+   text-align: start;
   }
   
   button {
@@ -62,4 +74,20 @@
   li{
    font-size: 0.6rem;
  
-  }
+  }  
+
+span{
+  font-weight: bold;
+}
+
+
+.add-to-library-button{
+  display: flex;
+  justify-content: center;
+  padding: 0.7rem;
+}
+
+.admin-edit-delet-button{
+display: flex;
+justify-content: center;
+}

@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Input, Button, List } from "antd";
@@ -72,7 +82,8 @@ function SearchBar({ onSearch }) {
         })}
 
         {searchResults.tracks?.map((result) => {
-          return <li>{result.artist}</li>;
+          return<Link to={`/track/${result._id}`}> <li>{result.artist}</li>
+          </Link>
         })}
 
         {searchResults.album?.map((result) => {
@@ -87,9 +98,9 @@ function SearchBar({ onSearch }) {
         {searchResults.artist?.map((result) => {
           return (
             <ul>
-              {" "}
-              <li>{result.name}</li>
-              <li>{result.name}</li>
+
+<Link to={`/artist/${result._id}`} > <li>{result.name}</li> </Link>
+           
             </ul>
           );
         })}
