@@ -20,14 +20,14 @@ function Navbar() {
   return (
     <>
     <nav className={`navbar navbar-expand-lg navbar-dark bg-black`}>
-    
+   
 {isLoggedIn && (
   <div className='Nav-flex'><ProfileImage /><Link  className="profile-page" to="/profile">{user.username}</Link></div>
 )} 
       <Link to="/">
         <img className='logo-img' alt='logo' src={logoImage} />
       </Link>
-     
+
 </nav>
 
     </>

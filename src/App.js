@@ -28,6 +28,7 @@ import Footer from "./pages/Footer";
 import "font-awesome/css/font-awesome.min.css";
 import EditProfileImage from "./pages/EditProfileImage"
 import EditPlaylist from "./pages/EditPlaylist";
+import EditProfile from "./pages/EditProfile";
 import IsAdminRoute from "./components/IsAdminRoute";
 
 
@@ -40,7 +41,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>  
-
+      <Route path="/edit/profile/:userId" element={<EditProfile/>} />   
       <Route path="/edit/playlist/:playlistId" element={<EditPlaylist/>} />     
       <Route path="/edit/profile" element={<EditProfileImage/>} />  
       <Route path="/edit/artist/:artistId" element={<EditArtist/>} />
