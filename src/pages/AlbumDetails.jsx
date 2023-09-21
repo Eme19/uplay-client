@@ -99,7 +99,7 @@ const AlbumDetail = ({ album, refreshAlbumList, onAddToLibrary }) => {
               </Button>
             </div>
 
-
+{/* 
             <div  className="admin-edit-delet-button">
               <button
                 className="delete-button"
@@ -108,7 +108,7 @@ const AlbumDetail = ({ album, refreshAlbumList, onAddToLibrary }) => {
                 Delete from Library
               </button>
             </div>
-            {/* <div  className="admin-edit-delet-button">
+            <div  className="admin-edit-delet-button">
               <Link to={`/edit/album/${album._id}`}>
                 <button className="edit-button">Edit Album</button>
               </Link>

@@ -24,17 +24,17 @@ function Profile() {
             <button onClick={logOutUser}>Logout</button>
           </div>
           {/* <Link to={`/edit/profile/${userId}`}>Edit Profile</Link> */}
-          <div className="admin-styling">
-          <Link to="/admin">
-              <Button type="primary">Admin Page</Button>
-            </Link>
-          </div>
+        
         </div>
       )}
       {!isLoggedIn && (
         <>
           <Home/>
-          
+          <div className="admin-styling">
+          <Link to="/admin">
+              <Button type="primary">Admin Page</Button>
+            </Link>
+          </div>
         </>
       )}
     </div>

@@ -1,0 +1,16 @@
+.edit-album-flex{
+    display: flex;
+    justify-content: center;
+}
+
+/* .btn-edit{
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+} */
+
+#btn-padding{
+    padding-top: 3rem;
+   float: right;
+    padding-bottom: 3rem;
+}

@@ -52,14 +52,14 @@ function TrackList() {
             <strong>Track Number:</strong> {track.track_number}<br />
           
             <AudioPlayer trackId={track._id} />
-            <div>
+            {/* <div>
            
               <Link to={`/edit/track/${track._id}`}>
              
                 <button className="edit-button">Edit Track</button>
               </Link>
               
-            </div>
+            </div> */}
           </li>
         ))}
       </ul>
