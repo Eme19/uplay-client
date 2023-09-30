@@ -29,7 +29,9 @@ import "font-awesome/css/font-awesome.min.css";
 import EditProfileImage from "./pages/EditProfileImage"
 import EditPlaylist from "./pages/EditPlaylist";
 import EditProfile from "./pages/EditProfile";
-import IsAdminRoute from "./components/IsAdminRoute";
+import AdminDashboard from "./pages/AdminDashboard";
+import IsPrivate from "./components/IsPrivate";
+import AdminRoute from "./components/admin/AdimRoute";
 
 
 
@@ -41,6 +43,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>  
+        <Route path="/admin/dashboard" element={<AdminRoute element={<AdminDashboard/>}/>}/>
       <Route path="/edit/profile/:userId" element={<EditProfile/>} />   
       <Route path="/edit/playlist/:playlistId" element={<EditPlaylist/>} />     
       <Route path="/edit/profile" element={<EditProfileImage/>} />  

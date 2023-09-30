@@ -32,7 +32,9 @@ function Signup() {
 
     const passwordStrengthRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordStrengthRegex.test(form.password)) {
-      message.error("Password must have at least 6 characters, including one digit, one lowercase letter, and one uppercase letter.");
+      message.error(
+        "Password must have at least 6 characters, including one digit, one lowercase letter, and one uppercase letter."
+      );
       return;
     }
 
@@ -50,95 +52,79 @@ function Signup() {
   return (
     <div className={`signup ${theme}`}>
       <div className="signup-style">
-      <form onSubmit={handleSignupSubmit}>
-        <h1>Sign Up</h1>
-        <div className="inputstyle">
-          <label>Username</label>
-          <Input
-            className="input-formstyle"
-            type="text"
-            name="username"
-            value={form.username}
-            onChange={handleFormChange}
-            required
-          />
-        </div>
+        <form onSubmit={handleSignupSubmit}>
+          <h1>Sign Up</h1>
+          <div className="inputstyle">
+            <label>Username</label>
+            <Input
+              className="input-formstyle"
+              type="text"
+              name="username"
+              value={form.username}
+              onChange={handleFormChange}
+              required
+            />
+          </div>
 
-        <div className="inputstyle">
-          <label>Email</label>
-          <Input
-            className="input-formstyle"
-            type="email"
-            name="email"
-            value={form.email}
-            onChange={handleFormChange}
-            required
-          />
-        </div>
+          <div className="inputstyle">
+            <label>Email</label>
+            <Input
+              className="input-formstyle"
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleFormChange}
+              required
+            />
+          </div>
 
-        <div className="inputstyle">
-          <label>Password</label>
-          <Input
-            className="input-formstyle"
-            type="password"
-            name="password"
-            value={form.password}
-            onChange={handleFormChange}
-            required
-          />
-        </div>
+          <div className="inputstyle">
+            <label>Password</label>
+            <Input
+              className="input-formstyle"
+              type="password"
+              name="password"
+              value={form.password}
+              onChange={handleFormChange}
+              required
+            />
+          </div>
 
-        <div className="inputstyle">
-          <label>Country</label>
-          <Input
-            className="input-formstyle"
-            type="text"
-            name="country"
-            value={form.country}
-            onChange={handleFormChange}
-            required
-          />
-        </div>
+          <div className="inputstyle">
+            <label>Country</label>
+            <Input
+              className="input-formstyle"
+              type="text"
+              name="country"
+              value={form.country}
+              onChange={handleFormChange}
+              required
+            />
+          </div>
 
-        <div className="inputstyle">
-          <label>State</label>
-          <Input
-            className="input-formstyle"
-            type="text"
-            name="state"
-            value={form.state}
-            onChange={handleFormChange}
-            required
-          />
-        </div>
+          <div className="inputstyle">
+            <label>State</label>
+            <Input
+              className="input-formstyle"
+              type="text"
+              name="state"
+              value={form.state}
+              onChange={handleFormChange}
+              required
+            />
+          </div>
 
-        <div className="btn-flex">
-          <button type="submit">
-            Sign Up!
-          </button>
-        </div>
-       
-      </form>
-   
+          <div className="btn-flex">
+            <button type="submit">Sign Up!</button>
+          </div>
+        </form>
       </div>
-<div id="p-signup-syle">
-<p>Already have an account? </p>
-  <Link to="/login">Login here!</Link>
-</div>
-
+      <div id="p-signup-syle">
+        <p>Already have an account? </p>
+        <Link to="/login">Login here!</Link>
+      </div>
     </div>
   );
 }
 
 export default Signup;
-
-
-
-
-
-
-
-
-
-
-

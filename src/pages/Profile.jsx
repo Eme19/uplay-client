@@ -30,11 +30,11 @@ function Profile() {
       {!isLoggedIn && (
         <>
           <Home/>
-          <div className="admin-styling">
+          {/* <div className="admin-styling">
           <Link to="/admin">
               <Button type="primary">Admin Page</Button>
             </Link>
-          </div>
+          </div> */}
         </>
       )}
     </div>

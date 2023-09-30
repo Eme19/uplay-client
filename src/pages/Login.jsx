@@ -40,10 +40,18 @@ function Login() {
       })
       .then((response) => {
         console.log("===show me login details==>", response);
+        console.log("Login Response:", response);
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/");
-     
+        console.log("User role:", response.data.user.role);
+        if (response.data.user.role === "admin") {
+          console.log("User is an admin");
+          navigate("/admin/dashboard");
+        } else {
+          console.log("User is not an admin");
+          navigate("/");
+        }
+
         message.success("Successfully LoggedIn")
       })
       .catch((error) => {

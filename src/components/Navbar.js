@@ -4,38 +4,35 @@ import { ThemeContext } from "../context/theme.context";
 import { AuthContext } from "../context/auth.context";
 import logoImage from '../assets/logo3.png';
 import ProfileImage from '../pages/ProfileImage';
-import "./NavBar.css"
-
-
-
-
+import "./NavBar.css";
 
 function Navbar() {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const { isLoggedIn , user } = useContext(AuthContext);
-
-
-  
+  const { isLoggedIn, user } = useContext(AuthContext);
 
   return (
     <>
-    <nav className={`navbar navbar-expand-lg navbar-dark bg-black`}>
-   
-{isLoggedIn && (
-  <div className='Nav-flex'><ProfileImage /><Link  className="profile-page" to="/profile">{user.username}</Link></div>
-)} 
-
-<Link className='logo-style' to="/">
-        <img className='logo-img' alt='logo' src={logoImage} />
-      </Link>
-     
-</nav>
-
+      <nav className={`navbar navbar-expand-lg navbar-dark bg-black`}>
+        <div className='navbar-content-container'>
+          {isLoggedIn && (
+            <div className='Nav-flex'>
+              <ProfileImage />
+              <Link className="profile-page" to="/profile">{user.username}</Link>
+            </div>
+          )}
+          <Link className='logo-style' to="/">
+            <img className='logo-img' alt='logo' src={logoImage} />
+          </Link>
+        </div>
+      </nav>
     </>
-  )
+  );
 }
 
 export default Navbar;
+
+
+
 
 
 
@@ -74,10 +71,11 @@ export default Navbar;
 // {isLoggedIn && (
 //   <div className='Nav-flex'><ProfileImage /><Link  className="profile-page" to="/profile">{user.username}</Link></div>
 // )} 
-//       <Link to="/">
+
+// <Link className='logo-style' to="/">
 //         <img className='logo-img' alt='logo' src={logoImage} />
 //       </Link>
-
+     
 // </nav>
 
 //     </>

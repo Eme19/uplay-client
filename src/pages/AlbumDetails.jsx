@@ -2,14 +2,13 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Card, Col, Button, message } from "antd";
 import { Link } from "react-router-dom";
-
 import "./AlbumDetails.css";
 import { AuthContext } from "../context/auth.context";
 
 const AlbumDetail = ({ album, refreshAlbumList, onAddToLibrary }) => {
   const [isAddingToLibrary, setIsAddingToLibrary] = useState(false);
   const { user, isLoggedIn } = useContext(AuthContext);
-
+const isAdmin = user && user.role === 'admin';
   const storedToken = localStorage.getItem("authToken");
 
   const api = axios.create({
@@ -118,7 +117,7 @@ const AlbumDetail = ({ album, refreshAlbumList, onAddToLibrary }) => {
         )}
       </>
       <>
-        {!isLoggedIn && (
+        {isAdmin && (
           <>
             <div>
               <button

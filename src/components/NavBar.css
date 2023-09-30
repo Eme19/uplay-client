@@ -11,3 +11,11 @@
    
 }
 
+
+.navbar-content-container {
+    display: flex;
+    overflow-x: auto; 
+  }
+  
+ 
+  
